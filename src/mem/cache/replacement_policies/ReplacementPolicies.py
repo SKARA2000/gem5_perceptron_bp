@@ -175,3 +175,23 @@ class WeightedLRURP(LRURP):
     type = "WeightedLRURP"
     cxx_class = "gem5::replacement_policy::WeightedLRU"
     cxx_header = "mem/cache/replacement_policies/weighted_lru_rp.hh"
+
+class PerceptronRP(TreePLRURP):
+    type = "PerceptronRP"
+    cxx_class = "gem5::replacement_policy::Perceptron"
+    cxx_header = "mem/cache/replacement_policies/perceptron_rp.hh"
+    num_features = Param.Unsigned(
+        6, "Number of features used in the perceptron predictor"
+    )
+    table_size = Param.Unsigned(
+        256, "Size of each feature table in the perceptron predictor"
+    )
+    prediction_threshold = Param.Int(
+        124, "Threshold for making predictions"
+    )
+    training_threshold = Param.Int(
+        68, "Threshold for training the perceptron"
+    )
+    pc_history_length = Param.Unsigned(
+        3, "Number of previous PCs to use as features"
+    )

@@ -85,7 +85,7 @@ namespace replacement_policy
 
 class TreePLRU : public Base
 {
-  private:
+  protected:
     /**
      * Instead of implementing the tree itself with pointers, it is implemented
      * as an array of bits. The index of the node defines its position in the
@@ -124,7 +124,6 @@ class TreePLRU : public Base
      */
     PLRUTree* treeInstance;
 
-  protected:
     /**
      * Tree-PLRU-specific implementation of replacement data. Each replacement
      * data shares its tree with other entries.
